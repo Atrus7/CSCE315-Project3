@@ -12,7 +12,7 @@ set(SRCS
 
 # # gflags
 # find_package (gflags REQUIRED)
-# include_directories (${gflags_INCLUDE_DIR})
+# include_directories(${INCLUDE_DIR}/gflags)
 
 #if we need boost, and what libraries
 #find_package(Boost 1.57.0 COMPONENTS filesystem system REQUIRED)
@@ -41,6 +41,9 @@ set(SRCS
 #    # if you find it, include its' headers
 #  include_directories(${Readline_INCLUDE_DIR})
 #endif()
+
+# includes
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 #binary names
 set(RELEASE_BINARY "${PROJECT_NAME}")
