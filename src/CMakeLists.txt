@@ -10,9 +10,9 @@ set(SRCS
 #set(UNITTEST_SRCS
 #  test_main.cc)
 
-# gflags
-find_package (gflags REQUIRED)
-include_directories (${gflags_INCLUDE_DIR})
+# # gflags
+# find_package (gflags REQUIRED)
+# include_directories (${gflags_INCLUDE_DIR})
 
 #if we need boost, and what libraries
 #find_package(Boost 1.57.0 COMPONENTS filesystem system REQUIRED)
@@ -58,8 +58,8 @@ set_property(TARGET ${RELEASE_BINARY} PROPERTY CXX_STANDARD_REQUIRED ON)
 # #C++14 required
 # #set_property(TARGET ${RELEASE_BINARY} PROPERTY CXX_STANDARD_REQUIRED ON)
 
-# # link libraries
-target_link_libraries(${RELEASE_BINARY} gflags)
+# # # link libraries
+# target_link_libraries(${RELEASE_BINARY} gflags)
 
 # # if curses was found, link binary with boost, readline and curses
 # if(CURSES_FOUND)
