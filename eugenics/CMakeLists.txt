@@ -22,6 +22,7 @@ set(SRCS
 #     include_directories(${GFlags_INCLUDE_DIRS})
 #   endif()
 # endif()
+message(${CMAKE_MODULE_PATH})
 find_package(gflags REQUIRED)
 include_directories(${gflags_INCLUDE_DIR})
 message(${gflags_INCLUDE_DIR})
