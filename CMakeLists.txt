@@ -84,16 +84,16 @@ include_directories("${LOCAL_DIR}/include/gflags")
 
   ## clone and install gflags
   ExternalProject_Add(
-    googleflags
+    gflags
     GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
     GIT_TAG "2.1.1"
 
-    # Force separate output paths for debug and release builds to allow easy
-    # identification of correct lib in subsequent TARGET_LINK_LIBRARIES commands
-    CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-    -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG:PATH=DebugLibs
-    -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE:PATH=ReleaseLibs
-    -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON
+    # # Force separate output paths for debug and release builds to allow easy
+    # # identification of correct lib in subsequent TARGET_LINK_LIBRARIES commands
+    # CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    # -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG:PATH=DebugLibs
+    # -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE:PATH=ReleaseLibs
+    # -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON
 
     UPDATE_COMMAND ""
     INSTALL_COMMAND ""
