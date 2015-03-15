@@ -95,14 +95,13 @@ include_directories("${LOCAL_DIR}/include/gflags")
     -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE:PATH=ReleaseLibs
     -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON
 
-    # UPDATE_COMMAND ""
-    # INSTALL_COMMAND ""
+    UPDATE_COMMAND ""
+    INSTALL_COMMAND ""
     # log output
     LOG_DOWNLOAD ON
     LOG_CONFIGURE ON
     LOG_BUILD ON)
   export(PACKAGE gflags)
-  add_dependencies(eugenics-system gflags)
 
   # # Add gtest
   # ExternalProject_Add(
