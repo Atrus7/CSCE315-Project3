@@ -1,8 +1,16 @@
 # Set Project_Name and Language
 project(eugenics-system CXX)
 
+# Set Version
+eugenics-system_VERSION(0.0.1)
+
 # version 3.0.0-rc5 is on compute.cse.tamu.edu
 cmake_minimum_required(VERSION 3.0.0)
+
+# Set the build type if it isn't already
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
 
 ## set some compiler flags
 ## note DEBUG is set for debug build
@@ -61,6 +69,61 @@ set(CMAKE_LIBRARY_PATH
 # include local/include
 include_directories("${LOCAL_DIR}/include")
 include_directories("${LOCAL_DIR}/include/gflags")
+
+## install libraries
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  # if run on OS X
+  # use homebrew for gflags
+else()
+  # if run on linux/unix
+  
+  ## clone and install gflags
+  # Set default ExternalProject root directory
+  set_directory_properties(PROPERTIES EP_PREFIX ${LOCAL_DIR})
+
+  include(ExternalProject)
+  ExternalProject_Add(
+    gflags
+    GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
+    GIT_TAG "2.1.1"
+    # Force separate output paths for debug and release builds to allow easy
+    # identification of correct lib in subsequent TARGET_LINK_LIBRARIES commands
+    CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+    -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG:PATH=DebugLibs
+    -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE:PATH=ReleaseLibs
+    -Dgtest_force_shared_crt=ON
+    UPDATE_COMMAND ""
+    INSTALL_COMMAND ""
+    # log output
+    LOG_DOWNLOAD ON
+    LOG_CONFIGURE ON
+    LOG_BUILD ON)
+  export(PACKAGE gflags)
+
+  # # Add gtest
+  # ExternalProject_Add(
+  #   googletest
+  #   SVN_REPOSITORY http://googletest.googlecode.com/svn/trunk/
+  #   SVN_REVISION -r 660
+  #   TIMEOUT 10
+  #   PATCH_COMMAND svn patch ${CMAKE_SOURCE_DIR}/gtest.patch ${CMAKE_BINARY_DIR}/ThirdParty/src/googletest
+  #   # Force separate output paths for debug and release builds to allow easy
+  #   # identification of correct lib in subsequent TARGET_LINK_LIBRARIES commands
+  #   CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+  #   -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG:PATH=DebugLibs
+  #   -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE:PATH=ReleaseLibs
+  #   -Dgtest_force_shared_crt=ON
+  #   # Disable install step
+  #   INSTALL_COMMAND ""
+  #   # Wrap download, configure and build steps in a script to log output
+  #   LOG_DOWNLOAD ON
+  #   LOG_CONFIGURE ON
+  #   LOG_BUILD ON)
+
+  # # Specify include dir
+  # ExternalProject_Get_Property(gflags source_dir)
+  # include_directories(${source_dir}/include)
+endif()
 
 ## set library locations
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
