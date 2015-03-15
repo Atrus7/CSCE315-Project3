@@ -24,6 +24,8 @@ set(SRCS
 # endif()
 find_package(gflags REQUIRED)
 include_directories(${gflags_INCLUDE_DIR})
+message(${gflags_INCLUDE_DIR})
+message(${gflags_LIBRARIES})
 
 #if we need boost, and what libraries
 #find_package(Boost 1.57.0 COMPONENTS filesystem system REQUIRED)
