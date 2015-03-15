@@ -2,7 +2,7 @@
 project(eugenics-system CXX)
 
 # Set Version
-PROJECT_VERSION(0.0.1)
+set(PROJECT_VERSION 0.0.1)
 
 # version 3.0.0-rc5 is on compute.cse.tamu.edu
 cmake_minimum_required(VERSION 3.0.0)
@@ -78,10 +78,11 @@ else()
   # if run on linux/unix
   
   ## clone and install gflags
+
+  #load ExternalProject module
+  include(ExternalProject)
   # Set default ExternalProject root directory
   set_directory_properties(PROPERTIES EP_PREFIX ${LOCAL_DIR})
-
-  include(ExternalProject)
   ExternalProject_Add(
     gflags
     GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
