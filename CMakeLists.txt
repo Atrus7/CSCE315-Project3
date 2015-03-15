@@ -86,7 +86,7 @@ include_directories("${LOCAL_DIR}/include/gflags")
   ExternalProject_Add(
     Gflags
     GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
-    GIT_TAG "2.1.1"
+    GIT_TAG "v2.1.1"
 
     # # Force separate output paths for debug and release builds to allow easy
     # # identification of correct lib in subsequent TARGET_LINK_LIBRARIES commands
