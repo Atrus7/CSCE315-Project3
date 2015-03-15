@@ -52,16 +52,16 @@ set(CMAKE_PREFIX_PATH
   ${CMAKE_PREFIX_PATH}
   ${LOCAL_DIR})
 # set cmake modules location
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+# if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     "${CMAKE_CURRENT_LIST_DIR}/local/lib/cmake/gflags")
-else()
-  set(CMAKE_MODULE_PATH
-    ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_LIST_DIR}/share/cmake"
-    "${CMAKE_CURRENT_LIST_DIR}/local/lib/cmake/gflags")
-endif()
+# else()
+#   set(CMAKE_MODULE_PATH
+#     ${CMAKE_MODULE_PATH}
+#     "${CMAKE_CURRENT_LIST_DIR}/share/cmake"
+#     "${CMAKE_CURRENT_LIST_DIR}/local/lib/cmake/gflags")
+# endif()
 # set cmake library path
 set(CMAKE_LIBRARY_PATH
   ${CMAKE_LIBRARY_PATH}
