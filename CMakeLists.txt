@@ -96,7 +96,7 @@ include_directories("${LOCAL_DIR}/include/gflags")
     # -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON
 
     UPDATE_COMMAND ""
-    INSTALL_COMMAND ""
+    # INSTALL_COMMAND ""
     # log output
     LOG_DOWNLOAD ON
     LOG_CONFIGURE ON
