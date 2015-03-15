@@ -77,12 +77,12 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 else()
   # if run on linux/unix
   
-  ## clone and install gflags
-
   #load ExternalProject module
   include(ExternalProject)
   # Set default ExternalProject root directory
   set_directory_properties(PROPERTIES EP_PREFIX ${LOCAL_DIR})
+
+  ## clone and install gflags
   ExternalProject_Add(
     gflags
     GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
@@ -96,7 +96,7 @@ else()
     -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=ON
 
     UPDATE_COMMAND ""
-    INSTALL_COMMAND ""
+    # INSTALL_COMMAND ""
     # log output
     LOG_DOWNLOAD ON
     LOG_CONFIGURE ON
