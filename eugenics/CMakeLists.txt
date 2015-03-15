@@ -61,7 +61,7 @@ set(RELEASE_BINARY "${PROGRAM_NAME}")
 set(UNITTEST_BINARY "${PROGRAM_NAME}-test")
 
 add_executable(${RELEASE_BINARY} ${MAIN_SRC} ${SRCS})
-add_dependencies(${RELEASE_BINARY} gflags)
+# add_dependencies(${RELEASE_BINARY} gflags)
 
 #use C++11
 set_property(TARGET ${RELEASE_BINARY} PROPERTY CXX_STANDARD 11)
