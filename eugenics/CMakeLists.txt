@@ -13,15 +13,17 @@ set(SRCS
 #  test_main.cc)
 
 # gflags
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  find_package(gflags REQUIRED)
-  include_directories(${gflags_INCLUDE_DIR})
-else()
-  find_package(GFlags REQUIRED)
-  if(GFlags_FOUND)
-    include_directories(${GFlags_INCLUDE_DIRS})
-  endif()
-endif()
+# if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#   find_package(gflags REQUIRED)
+#   include_directories(${gflags_INCLUDE_DIR})
+# else()
+#   find_package(GFlags REQUIRED)
+#   if(GFlags_FOUND)
+#     include_directories(${GFlags_INCLUDE_DIRS})
+#   endif()
+# endif()
+find_package(gflags REQUIRED)
+include_directories(${gflags_INCLUDE_DIR})
 
 #if we need boost, and what libraries
 #find_package(Boost 1.57.0 COMPONENTS filesystem system REQUIRED)
