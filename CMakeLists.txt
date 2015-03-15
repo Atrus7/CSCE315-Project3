@@ -71,11 +71,11 @@ include_directories("${LOCAL_DIR}/include")
 include_directories("${LOCAL_DIR}/include/gflags")
 
 ## install libraries
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  # if run on OS X
-  # use homebrew for gflags
-else()
-  # if run on linux/unix
+# if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#   # if run on OS X
+#   # use homebrew for gflags
+# else()
+#   # if run on linux/unix
   
   #load ExternalProject module
   include(ExternalProject)
@@ -84,7 +84,7 @@ else()
 
   ## clone and install gflags
   ExternalProject_Add(
-    gflags
+    googleflags
     GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
     GIT_TAG "2.1.1"
 
@@ -102,6 +102,7 @@ else()
     LOG_CONFIGURE ON
     LOG_BUILD ON)
   export(PACKAGE gflags)
+  add_dependencies(gflags)
 
   # # Add gtest
   # ExternalProject_Add(
@@ -126,7 +127,7 @@ else()
   # # Specify include dir
   # ExternalProject_Get_Property(gflags source_dir)
   # include_directories(${source_dir}/include)
-endif()
+# endif()
 
 ## set library locations
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
