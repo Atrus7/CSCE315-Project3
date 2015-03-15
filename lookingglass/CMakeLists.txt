@@ -71,6 +71,7 @@ set(RELEASE_BINARY "${PROGRAM_NAME}")
 set(UNITTEST_BINARY "${PROGRAM_NAME}-test")
 
 add_executable(${RELEASE_BINARY} ${MAIN_SRC} ${SRCS})
+add_dependencies(${RELEASE_BINARY} gflags)
 
 #use C++11
 set_property(TARGET ${RELEASE_BINARY} PROPERTY CXX_STANDARD 11)
@@ -83,11 +84,12 @@ set_property(TARGET ${RELEASE_BINARY} PROPERTY CXX_STANDARD_REQUIRED ON)
 # #set_property(TARGET ${RELEASE_BINARY} PROPERTY CXX_STANDARD_REQUIRED ON)
 
 # link libraries
-if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  target_link_libraries(${RELEASE_BINARY} ${gflags_LIBRARIES})
-else()
-  target_link_libraries(${RELEASE_BINARY} ${GFlags_LIBS})
-endif()
+# if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#   target_link_libraries(${RELEASE_BINARY} ${gflags_LIBRARIES})
+# else()
+#   target_link_libraries(${RELEASE_BINARY} ${GFlags_LIBS})
+# endif()
+target_link_libraries(${RELEASE_BINARY} ${gflags_LIBRARIES})
 
 # # if curses was found, link binary with boost, readline and curses
 # if(CURSES_FOUND)
