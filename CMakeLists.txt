@@ -101,7 +101,7 @@ include_directories("${LOCAL_DIR}/include/gflags")
     LOG_DOWNLOAD ON
     LOG_CONFIGURE ON
     LOG_BUILD ON)
-  # export(PACKAGE gflags)
+  export(PACKAGE gflags)
 
   # # Add gtest
   # ExternalProject_Add(
