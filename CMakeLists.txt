@@ -102,7 +102,7 @@ include_directories("${LOCAL_DIR}/include/gflags")
     LOG_CONFIGURE ON
     LOG_BUILD ON)
   export(PACKAGE gflags)
-  add_dependencies(gflags)
+  add_dependencies(eugenics-system gflags)
 
   # # Add gtest
   # ExternalProject_Add(
