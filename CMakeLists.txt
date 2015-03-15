@@ -80,7 +80,7 @@ include_directories("${LOCAL_DIR}/include/gflags")
   #load ExternalProject module
   include(ExternalProject)
   # # Set default ExternalProject root directory
-  # set_directory_properties(PROPERTIES EP_PREFIX ${LOCAL_DIR})
+  set_directory_properties(PROPERTIES EP_PREFIX ${LOCAL_DIR})
 
   ## clone and install gflags
   ExternalProject_Add(
