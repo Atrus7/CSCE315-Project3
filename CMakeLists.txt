@@ -2,7 +2,7 @@
 project(eugenics-system CXX)
 
 # Set Version
-eugenics-system_VERSION(0.0.1)
+PROJECT_VERSION(0.0.1)
 
 # version 3.0.0-rc5 is on compute.cse.tamu.edu
 cmake_minimum_required(VERSION 3.0.0)
