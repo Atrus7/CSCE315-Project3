@@ -135,7 +135,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 else()
   # if run on linux/unix
   
-  set(GFlags_ROOT_DIR include/gflags-2.1.1)
+  # set(GFlags_ROOT_DIR include/gflags-2.1.1)
   # directory boost is installed to (--prefix)
   #set(BOOST_ROOT ${LOCAL_DIR})
   # directory readline is installed to (--prefix)
