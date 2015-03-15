@@ -84,7 +84,7 @@ include_directories("${LOCAL_DIR}/include/gflags")
 
   ## clone and install gflags
   ExternalProject_Add(
-    gflags
+    Gflags
     GIT_REPOSITORY "https://github.com/schuhschuh/gflags.git"
     GIT_TAG "2.1.1"
 
