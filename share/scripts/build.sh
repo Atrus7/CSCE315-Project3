@@ -28,8 +28,8 @@ if [ "$HOSTNAME" = "sun2.cs.tamu.edu" ]; then
 elif [ "$HOSTNAME" = "compute-linux1" ]; then
     # hell yeah
     CORES=32
-    # CC=/usr/bin/gcc-4.7
-    # CXX=/usr/bin/g++-4.7
+    CC=/usr/bin/gcc-4.7
+    CXX=/usr/bin/g++-4.7
 elif [ "$HOSTNAME" = "Tron" ]; then
     CORES=4
     CXX="/usr/local/opt/ccache/libexec/clang++-3.6 -stdlib=libc++"
